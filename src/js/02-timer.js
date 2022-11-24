@@ -1,5 +1,5 @@
 import flatpickr from 'flatpickr';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'flatpickr/dist/flatpickr.min.css';
 require('flatpickr/dist/themes/dark.css');
 
@@ -84,7 +84,8 @@ function onStartClick() {
       }, 1000);
     },
   };
-  timer.start();
+    timer.start();
+    Notify.success('✅ timer has been started');
 }
 
 function updateTimer({ days, hours, minutes, seconds }) {
