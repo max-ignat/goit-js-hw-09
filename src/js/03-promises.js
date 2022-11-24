@@ -16,21 +16,21 @@ function createPromise(position, delay) {
 }
 formEl.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(evtent) {
-  evtent.preventDefault();
+function onFormSubmit(event) {
+  event.preventDefault();
 
-  const elems = evt.currentTarget.elements;
+  const elems = event.currentTarget.elements;
   // console.log('elems', elems);
 
-  let delayVal = Number(elems.delay.value);
-  const stepVal = Number(elems.step.value);
-  let amountVal = Number(elems.amount.value);
+  let delayValue = Number(elems.delay.value);
+  const stepValue = Number(elems.step.value);
+  let amountValue = Number(elems.amount.value);
 
-  for (let position = 1; position <= amountVal; position +=1) {
+  for (let position = 1; position <= amountValue; position +=1) {
     if (position !== 1) {
-      delayVal += stepVal;
+      delayValue += stepValue;
     }
-    createPromise(position, delayVal)
+    createPromise(position, delayValue)
       .then(({ position, delay }) =>
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
         // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`)
